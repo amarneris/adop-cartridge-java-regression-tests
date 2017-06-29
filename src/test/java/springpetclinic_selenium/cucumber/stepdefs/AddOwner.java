@@ -31,17 +31,17 @@ public class AddOwner {
             driver.setProxy(config.getZapIp(), config.getZapPort());
         }
         driver.get(config.getPetClinicUrl()+"/owners/find.html");
-        driver.findElement(By.xpath("/html/body/div/a")).click();
+        driver.findElement(By.xpath("/html/body/div/div/a")).click();
         driver.findElement(By.xpath("//input[@id='firstName']")).sendKeys(config.getOwner().getFirstName());
         driver.findElement(By.xpath("//input[@id='lastName']")).sendKeys(config.getOwner().getLastName());
         driver.findElement(By.xpath("//input[@id='address']")).sendKeys(config.getOwner().getAddress());
         driver.findElement(By.xpath("//input[@id='city']")).sendKeys(config.getOwner().getAddress());
         driver.findElement(By.xpath("//input[@id='telephone']")).sendKeys(config.getOwner().getTelephone());
-        driver.findElement(By.xpath("//*[@id='add-owner-form']/div[6]/button")).submit();
+        driver.findElement(By.xpath("//*[@id='add-owner-form']/div[2]/div/button")).submit();
     }
 
     @Then("^the Pet Owner \"(.*?)\" should be added to the Petclinic Project\\.$")
     public void the_Pet_Owner_should_be_added_to_the_Petclinic_Project(String arg1) throws Throwable {
-    	assertTrue(driver.findElement(By.xpath("/html/body/div/table[1]/tbody/tr[1]/td/b")).getText().equals(arg1));
+    	assertTrue(driver.findElement(By.xpath("/html/body/div/div/table[1]/tbody/tr[1]/td/b")).getText().equals(arg1));
     }
 }

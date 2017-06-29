@@ -13,7 +13,6 @@ Feature: Browsing around
   Scenario: Owners
     Given I am on the home page
     And I follow "/owners/find.html"
-    When I fill in "lastName" with "Franklin"
-    And I press "Find Owners"
-    Then I should see "George"
-    And I should see "Franklin"
+    When I fill in "lastName" with "Smith"
+    And I press "Find Owner"
+    Then I should see "John Smith"
